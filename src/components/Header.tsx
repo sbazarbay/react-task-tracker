@@ -1,12 +1,16 @@
 import PropTypes from 'prop-types'
+import Button from './Button'
 
-type Props = { title: string }
+type Props = { title?: string }
 
 const Header = (props: Props) => {
+    const onClick = () => {
+        console.log('clickedy-click!')
+    }
     return (
         <header className="header">
             <h1>{props.title}</h1>
-            <button className="btn">Add</button>
+            <Button color="green" text="Add" onClick={onClick} />
         </header>
     )
 }
@@ -16,9 +20,9 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string
 }
 
-const headingStyle = { color: 'red', backgroundColor: 'black' }
+// const headingStyle = { color: 'red', backgroundColor: 'black' }
 
 export default Header
