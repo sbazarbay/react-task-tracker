@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Eat sandwich",
+      "day": "Tomorrow at 16:30",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Update Pet-project",
+      "day": "Yesterday at 8:00",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "text": "Fly to the moon",
+      "day": "Sometime in 2040",
+      "reminder": true
+    },
+    {
+      "id": 4,
+      "text": "Buy new clothes",
+      "day": "Next week",
+      "reminder": true
+    },
+    {
+      "text": "Say Hello to everyone",
+      "day": "Today",
+      "reminder": false,
+      "id": 5
+    }
+  ]
+}
