@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 
 export type Props = {
   task: { id: number, text: string, day: string, reminder: boolean },
-  onDelete: (id: number) => void
+  onDelete: (id: number) => void,
+  onToggle: (id: number) => void
 }
 
 const Task = (props: Props) => {
   return (
-    <div className='task'>
+    <div className={`task ${props.task.reminder ? 'reminder' : ''}`} onDoubleClick={() => props.onToggle(props.task.id)}>
       <h3>
         {props.task.text}
         <FaTimes

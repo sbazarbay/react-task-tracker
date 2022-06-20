@@ -5,14 +5,20 @@ import PropTypes from 'prop-types'
 
 type Props = {
   tasks: TaskProps["task"][],
-  onDelete: (id: number) => void
+  onDelete: (id: number) => void,
+  onToggle: (id: number) => void
 }
 
 const TaskList = (props: Props) => {
   return (
     <>
       {props.tasks.map((task: TaskProps["task"]) =>
-        <Task key={task.id} task={task} onDelete={props.onDelete} />
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={props.onDelete}
+          onToggle={props.onToggle}
+        />
       )}
     </>
   )
