@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
 
-type Props = { title?: string }
+type Props = { title?: string, onButtonClick?: () => void, showForm?: boolean }
 
 const Header = (props: Props) => {
-  const onClick = () => {
-    console.log('clickedy-click!')
-  }
   return (
     <header className="header">
       <h1>{props.title}</h1>
-      <Button color="green" text="Add" onClick={onClick} />
+      <Button
+        color={props.showForm ? "firebrick" : "green"}
+        text={props.showForm ? "Close Form" : "Add New Task"}
+        onClick={props.onButtonClick} />
     </header>
   )
 }
@@ -20,7 +20,9 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  onButtonClick: PropTypes.func,
+  showForm: PropTypes.bool
 }
 
 // const headingStyle = { color: 'red', backgroundColor: 'black' }

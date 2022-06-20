@@ -5,6 +5,7 @@ import AddTask from './components/AddTask'
 import { Props as TaskProps } from './components/Task'
 
 function App() {
+  const [showForm, setShowForm] = useState(false)
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -42,13 +43,17 @@ function App() {
   }
 
   const toggleReminder = (id: number) => {
-    setTasks(tasks.map(task => task.id === id ? { ...task, reminder: !task.reminder } : task))
+    setTasks(
+      tasks.map(
+        task => task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    )
   }
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onButtonClick={() => setShowForm(!showForm)} showForm={showForm} />
+      {showForm && <AddTask onAdd={addTask} />}
       {
         tasks.length > 0 ?
           <TaskList tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
